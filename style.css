@@ -1,7 +1,29 @@
+:root {
+  --logo-size: 8rem;
+  --logo-border: 3px;
+}
+
 .person-logo {
   border-radius: 50%;
-  height: 8rem;
-  width: 8rem;
+  height: var(--logo-size);
+  width: var(--logo-size);
+  position: relative;
+}
+
+.person-logo-container .background {
+  content: "";
+  position: absolute;
+  background:
+    conic-gradient(from 90deg, rgba(255, 255, 255, 0) 0%, #0f95dd 25%),
+    rgba(0, 205, 255, 1);
+  height: var(--logo-size);
+  width: var(--logo-size);
+  padding: calc(var(--logo-border) * 2);
+  margin-left: calc(-2 * var(--logo-border));
+  margin-top: calc(-2 * var(--logo-border));
+
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
 }
 
 header {
@@ -9,4 +31,17 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+main > div {
+  padding: 15px;
 }
